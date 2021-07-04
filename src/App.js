@@ -1,16 +1,17 @@
 import React from 'react';
-import { Heading, VStack, IconButton, useColorMode } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import TodoState from './context/todo/TodoState';
 import Header from './components/Header';
+import TodoList from './components/TodoList';
 
 const App = () => {
   return (
     <TodoState>
-      <div>
-        <Header />
-      </div>
+      <Header />
+      <VStack>
+        <TodoList />
+      </VStack>
     </TodoState>
-
   );
 }
 

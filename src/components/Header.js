@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, VStack, HStack, Text, IconButton, useColorMode, Spacer } from '@chakra-ui/react';
+import { VStack, HStack, Text, IconButton, useColorMode, Spacer } from '@chakra-ui/react';
 import { GiMoonOrbit } from 'react-icons/gi';
 import { HiSun } from 'react-icons/hi';
 

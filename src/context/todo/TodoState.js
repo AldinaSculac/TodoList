@@ -9,9 +9,29 @@ import {
   SET_LOADING
 } from '../types';
 
+/*
+{
+  id: 1,
+    content: 'Task 1'
+},
+{
+  id: 2,
+    content: 'Task 2'
+}
+*/
+
 const TodoState = props => {
   const initialState = {
-    todos: [],
+    todos: [
+      {
+        id: 1,
+        content: 'Task 1'
+      },
+      {
+        id: 2,
+        content: 'Task 2'
+      }
+    ],
     todo: {},
     loading: false
   }
