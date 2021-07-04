@@ -9,29 +9,9 @@ import {
   SET_LOADING
 } from '../types';
 
-/*
-{
-  id: 1,
-    content: 'Task 1'
-},
-{
-  id: 2,
-    content: 'Task 2'
-}
-*/
-
 const TodoState = props => {
   const initialState = {
-    todos: [
-      {
-        id: 1,
-        content: 'Task 1'
-      },
-      {
-        id: 2,
-        content: 'Task 2'
-      }
-    ],
+    todos: [],
     todo: {},
     loading: false
   }
@@ -39,24 +19,20 @@ const TodoState = props => {
   const [state, dispatch] = useReducer(TodoReducer, initialState);
 
   // Add Todo
-  const addTodo = (todo) => {
+  const addTodo = (task) => {
     //setLoading();
     dispatch({
       type: ADD_TODO,
-      payload: todo
+      payload: task
     });
   }
 
   // Edit Todo
   const deleteTodo = (id) => {
-    console.log(id);
-    //setLoading();
-    /*
     dispatch({
       type: DELETE_TODO,
-      payload: todo
+      payload: id
     });
-    */
   }
 
   // Set Loading

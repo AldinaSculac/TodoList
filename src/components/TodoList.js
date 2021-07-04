@@ -18,10 +18,12 @@ const TodoList = () => {
         color="gray.600"
         fontSize="sm"
         fontWeight="medium"
+        onClick={deleteTodo}
       >
         No Todos!
       </Badge>)
   }
+
 
   return (
     <VStack
