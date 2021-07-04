@@ -5,7 +5,7 @@ import { FcFullTrash } from 'react-icons/fc';
 
 const TodoList = () => {
 
-  const { todos } = useContext(TodoContext);
+  const { todos, deleteTodo } = useContext(TodoContext);
   const { colorMode } = useColorMode();
 
   if (!todos.length) {
@@ -42,6 +42,7 @@ const TodoList = () => {
           <IconButton
             icon={<FcFullTrash />}
             isRound="true"
+            onClick={() => deleteTodo(item.id)}
           />
         </HStack>
       })}

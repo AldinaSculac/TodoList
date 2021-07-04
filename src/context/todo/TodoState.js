@@ -46,7 +46,18 @@ const TodoState = props => {
       payload: todo
     });
   }
+
   // Edit Todo
+  const deleteTodo = (id) => {
+    console.log(id);
+    //setLoading();
+    /*
+    dispatch({
+      type: DELETE_TODO,
+      payload: todo
+    });
+    */
+  }
 
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
@@ -58,6 +69,7 @@ const TodoState = props => {
         todo: state.todo,
         loading: state.loading,
         addTodo,
+        deleteTodo,
       }}
     >
       {props.children}
