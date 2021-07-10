@@ -12,8 +12,6 @@ const TodoList = () => {
   const { todos, deleteTodo } = useContext(TodoContext);
   const { colorMode } = useColorMode();
 
-  console.log(todos);
-
   if (!todos.length) {
     return (
       <Badge
