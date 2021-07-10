@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { HStack, Input, useColorMode, useToast, IconButton, Button } from '@chakra-ui/react';
+import { HStack, Input, useColorMode, useToast, IconButton } from '@chakra-ui/react';
 import TodoContext from '../context/todo/todoContext';
 import { HiPlus } from 'react-icons/hi';
 
