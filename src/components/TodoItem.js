@@ -25,6 +25,14 @@ const TodoItem = (props) => {
     setShowEdit(false)
   }
 
+  /*
+  <Text 
+            color={colorMode === "dark" ? "whiteAlpha.500" : "gray.500"}
+            fontSize='xs'
+          >
+            {f_cleanDate(itemAdded)}</Text>
+  */
+
   return (
     <HStack>
           {showEdit ? 
@@ -36,11 +44,7 @@ const TodoItem = (props) => {
           : 
           (<Text style={{fontWeight: 'bold'}}>{itemContent}</Text>)}
           
-          <Text 
-            color={colorMode === "dark" ? "whiteAlpha.500" : "gray.500"}
-            fontSize='xs'
-          >
-            {f_cleanDate(itemAdded)}</Text>
+          
           <Spacer />
           { !showEdit ?
             (<IconButton

@@ -2,7 +2,6 @@ import {
   ADD_TODO,
   EDIT_TODO,
   DELETE_TODO,
-  //SET_LOADING
 } from '../types';
 import { nanoid } from 'nanoid';
 
@@ -15,7 +14,7 @@ export default (state, action) => {
         {
           id: nanoid(),
           content: action.payload,
-          taskAdded: new Date()
+          //taskAdded: new Date()
         },
         ...state.todos
         ]
@@ -23,15 +22,9 @@ export default (state, action) => {
     case EDIT_TODO:
       return {
         ...state,
-        todos: [
-        {
-          id: nanoid(),
-          content: action.payload,
-          taskAdded: new Date()
-        },
-        ...state.todos
-        ]
-      };
+        todos: state.todos.map(todo => todo.id === action.payload.id ? {...todo, content:action.payload.task} 
+          : todo)
+      }
     case DELETE_TODO:
       return {
         ...state,
