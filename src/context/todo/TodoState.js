@@ -6,7 +6,7 @@ import {
   ADD_TODO,
   EDIT_TODO,
   DELETE_TODO,
-  SET_LOADING
+  //SET_LOADING
 } from '../types';
 
 const TodoState = props => {
@@ -27,7 +27,16 @@ const TodoState = props => {
     });
   }
 
-  // Edit Todo
+  // Add Todo
+  const editTodo = (task, id) => {
+    //setLoading();
+    dispatch({
+      type: EDIT_TODO,
+      payload: {task, id}
+    });
+  }
+
+  // Delete Todo
   const deleteTodo = (id) => {
     dispatch({
       type: DELETE_TODO,
@@ -36,7 +45,7 @@ const TodoState = props => {
   }
 
   // Set Loading
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  //const setLoading = () => dispatch({ type: SET_LOADING });
 
   return (
     <TodoContext.Provider
@@ -45,6 +54,7 @@ const TodoState = props => {
         todo: state.todo,
         loading: state.loading,
         addTodo,
+        editTodo,
         deleteTodo,
       }}
     >

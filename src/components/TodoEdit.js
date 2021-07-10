@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { HStack, Input, useColorMode, useToast, IconButton } from '@chakra-ui/react';
 import TodoContext from '../context/todo/todoContext';
-import { HiPlus, HiCheck} from 'react-icons/hi';
+import { HiCheck} from 'react-icons/hi';
 
 const TodoEdit = (props) => {
-  const {inputDefaultValue, taskId} = props;
-  const { addTodo } = useContext(TodoContext);
+  const {inputDefaultValue, taskId, activeEdit} = props;
+  const { editTodo } = useContext(TodoContext);
   const [term, setTerm] = useState(inputDefaultValue);
   const [closeEdit, setCloseEdit] = useState(false);
 
@@ -29,18 +29,11 @@ const TodoEdit = (props) => {
       return;
     }
 
-    //editTodo(term, taskId);
+    editTodo(term, taskId);
     //setTerm('');
     setCloseEdit(true);
+    activeEdit();
   }
-
-  console.log(closeEdit);
-
-  /*
-  useEffect(() => {
-    setCloseEdit(false);
-  }, []);
-  */
 
   return (
     <form onSubmit={onSubmit}>

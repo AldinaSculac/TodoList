@@ -17,9 +17,13 @@ const f_cleanDate = (date) => {
 
 const TodoItem = (props) => {
   const {itemContent, itemId, itemAdded} = props;
-  const { todos, deleteTodo } = useContext(TodoContext);
+  const { deleteTodo } = useContext(TodoContext);
   const { colorMode } = useColorMode();
   const [showEdit, setShowEdit] = useState(false);
+
+  const activeEdit = () => {
+    setShowEdit(false)
+  }
 
   return (
     <HStack>
@@ -27,6 +31,7 @@ const TodoItem = (props) => {
           (<TodoEdit 
             inputDefaultValue={itemContent} 
             taskId={itemId}
+            activeEdit={activeEdit}
             />) 
           : 
           (<Text style={{fontWeight: 'bold'}}>{itemContent}</Text>)}
