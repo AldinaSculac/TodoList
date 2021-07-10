@@ -1,17 +1,14 @@
-import React, { useContext } from 'react';
-import { Spacer, VStack, HStack, IconButton, Text, StackDivider, Badge, useColorMode } from '@chakra-ui/react';
+import React, { useContext, useState } from 'react';
+import { 
+  VStack, 
+  StackDivider, 
+  Badge, 
+  useColorMode,
+} from '@chakra-ui/react';
 import TodoContext from '../context/todo/todoContext';
-import { BsPencil, BsTrash } from 'react-icons/bs';
-
-
-const f_cleanDate = (date) => {
-    const cleanDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-    return cleanDate;
-  }
-
+import TodoItem from './TodoItem';
 
 const TodoList = () => {
-
   const { todos, deleteTodo } = useContext(TodoContext);
   const { colorMode } = useColorMode();
 
@@ -31,9 +28,7 @@ const TodoList = () => {
       </Badge>)
   }
 
-
   return (
-    
     <VStack
       divider={<StackDivider />}
       borderColor={colorMode === "dark" ? "whiteAlpha.100" : "gray.100"}
@@ -46,25 +41,12 @@ const TodoList = () => {
       mt={8}
     >
       {todos.map(item => {
-        return <HStack key={item.id}>
-          <Text style={{fontWeight: 'bold'}}>{item.content}</Text>
-          <Text 
-            color={colorMode === "dark" ? "whiteAlpha.500" : "gray.500"}
-            fontSize='xs'
-          >
-            {f_cleanDate(item.taskAdded)}</Text>
-          <Spacer />
-          <IconButton
-            icon={<BsPencil />}
-            isRound="true"
-            onClick={() => deleteTodo(item.id)}
-          />
-          <IconButton
-            icon={<BsTrash />}
-            isRound="true"
-            onClick={() => deleteTodo(item.id)}
-          />
-        </HStack>
+        return <TodoItem 
+          key={item.id}
+          itemContent={item.content}
+          itemId={item.id}
+          itemAdded={item.taskAdded}
+        />
       })}
     </VStack>
   )
