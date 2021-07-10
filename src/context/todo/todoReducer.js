@@ -11,11 +11,12 @@ export default (state, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos,
+        todos: [
         {
           id: nanoid(),
           content: action.payload
-        }
+        },
+        ...state.todos
         ]
       };
     case DELETE_TODO:
