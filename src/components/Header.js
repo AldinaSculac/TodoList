@@ -29,7 +29,7 @@ const Header = () => {
           backgroundColor="whiteAlpha.100"
           _hover={{ bg: "whiteAlpha.300" }}
           color="whiteAlpha.800"
-        //_focus={{ boxShadow: "outline" }}
+          //_focus={{ boxShadow: "outline" }}
         />
       </HStack>
     </VStack>

@@ -7,7 +7,6 @@ const TodoEdit = (props) => {
   const {inputDefaultValue, taskId, activeEdit} = props;
   const { editTodo } = useContext(TodoContext);
   const [term, setTerm] = useState(inputDefaultValue);
-  const [closeEdit, setCloseEdit] = useState(false);
 
   const toast = useToast();
 
@@ -30,8 +29,6 @@ const TodoEdit = (props) => {
     }
 
     editTodo(term, taskId);
-    //setTerm('');
-    setCloseEdit(true);
     activeEdit();
   }
 

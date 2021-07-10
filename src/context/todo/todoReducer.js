@@ -14,7 +14,7 @@ export default (state, action) => {
         {
           id: nanoid(),
           content: action.payload,
-          //taskAdded: new Date()
+          taskAdded: new Date()
         },
         ...state.todos
         ]
