@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import TodoContext from './todoContext';
 import TodoReducer from './todoReducer';
 
@@ -9,9 +9,7 @@ import {
 } from '../types';
 
 const TodoState = props => {
-  const initialState = {
-    todos: [],
-  }
+  const initialState = [];
 
   const [state, dispatch] = useReducer(TodoReducer, initialState);
 
@@ -43,7 +41,7 @@ const TodoState = props => {
   return (
     <TodoContext.Provider
       value={{
-        todos: state.todos,
+        todos: state,
         addTodo,
         editTodo,
         deleteTodo,

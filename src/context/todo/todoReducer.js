@@ -3,29 +3,20 @@ import {
   EDIT_TODO,
   DELETE_TODO,
 } from '../types';
-import { nanoid } from 'nanoid';
 
 export default (state, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return {
-        ...state,
-        todos: [
-          action.payload,
-        ...state.todos
-        ]
-      };
+      return [
+        action.payload,
+        ...state
+      ]
     case EDIT_TODO:
-      return {
-        ...state,
-        todos: state.todos.map(todo => todo.id === action.payload.id ? {...todo, content:action.payload.task} 
+      return [...state.map(todo => todo.id === action.payload.id ? {...todo, content:action.payload.task} 
           : todo)
-      }
+      ]
     case DELETE_TODO:
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload)
-      };
+      return [...state.filter(todo => todo.id !== action.payload)]
     default:
       return state;
   }
