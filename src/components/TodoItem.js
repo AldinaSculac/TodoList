@@ -11,8 +11,14 @@ import { BsPencil, BsTrash } from 'react-icons/bs';
 import TodoEdit from './TodoEdit';
 
 const f_cleanDate = (date) => {
-  const cleanDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-  return cleanDate;
+  if(typeof date === 'string') {
+    const newDate = new Date(date);
+    const cleanDate = newDate.getDate() + '/' + (newDate.getMonth() + 1) + '/' + newDate.getFullYear();
+    return cleanDate;
+  } else {
+    const cleanDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+    return cleanDate;
+  }
 }
 
 const TodoItem = (props) => {

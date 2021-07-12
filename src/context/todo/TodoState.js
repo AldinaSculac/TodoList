@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import TodoContext from './todoContext';
 import TodoReducer from './todoReducer';
 
@@ -11,7 +11,18 @@ import {
 const TodoState = props => {
   const initialState = [];
 
-  const [state, dispatch] = useReducer(TodoReducer, initialState);
+  const [state, dispatch] = useReducer(TodoReducer, initialState, () => {
+    const localData = localStorage.getItem('todos');
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  // Fetch Todos from localStorage
+
+
+  // Save Todos to localStorage
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(state))
+  }, [state])
 
   // Add Todo
   const addTodo = (task) => {
