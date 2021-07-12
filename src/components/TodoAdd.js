@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { HStack, Input, useColorMode, useToast, IconButton } from '@chakra-ui/react';
 import TodoContext from '../context/todo/todoContext';
 import { HiPlus } from 'react-icons/hi';
+import { nanoid } from 'nanoid';
 
 const TodoAdd = () => {
 
@@ -28,7 +29,11 @@ const TodoAdd = () => {
       return;
     }
 
-    addTodo(term);
+    addTodo({
+      id: nanoid(),
+      content: term,
+      taskAdded: new Date()
+    });
     setTerm('');
   }
 

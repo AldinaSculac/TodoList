@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import TodoContext from './todoContext';
 import TodoReducer from './todoReducer';
 
@@ -23,7 +23,7 @@ const TodoState = props => {
     });
   }
 
-  // Add Todo
+  // Edit Todo
   const editTodo = (task, id) => {
     dispatch({
       type: EDIT_TODO,
